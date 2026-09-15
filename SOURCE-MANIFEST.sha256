@@ -316,10 +316,9 @@ c51ebfc88950468bc3bd189466fb08045df567974b09bda231e518d70c2b17ba  ./app/src/test
 44d5a3b5fc7ec7bdc7c0f1d294703de79498120ea5a113f4c9519672d923953b  ./app/src/test/java/com/mobilerun/portal/ui/taskprompt/TaskHistoryQueryStateTest.kt
 25285a562241c873646c3e13cc1644f4c914ca90d9746e033ebba4d450284c1a  ./app/src/test/java/com/mobilerun/portal/update/UpdateCheckerTest.kt
 a25f8bb50b2a1b722379e8a04e757e99ee5573dbd2ea8c551c52a25668b1103e  ./build.gradle.kts
-5b00785589edd8ec45f699e97bb6ec2f6d302bb5cdaebc6b2cbb079ae2d41fbd  ./build/reports/problems/problems-report.html
 436b22213465c1380928dc89147d430ebbc5eb9a858bd87774901623f54524da  ./code-style.md
 8e22b99b730bf13bc2a54b651b8c48f7caaccaea89799497a7da9208171e7164  ./docs/Frame 27.png
-bbadf9c9bb9cb12ecba75818612bb71de12783ae170b84733bfb2ae6ef41a3c7  ./docs/RELEASING.md
+d67d4db4c1161adc7208aa48545fb7580d620d01d4a1a774f1ac0b997926853b  ./docs/RELEASING.md
 d5401167f19a85dbd90bd3eeb9dcc05c291a3adaac21cdb21994b7ac14675dcc  ./docs/hypershell-signing-certificate.pem
 4eb64930231b6bb584494255ba9fb97aa185c271c835cf7254709d8f3e6ba7d4  ./docs/local-api.md
 e0ce0d602a0caccbff55ae9fb7eec469f1d2dd279826446fc1b8520c5e117c6a  ./docs/reverse-connection.md
@@ -333,6 +332,7 @@ e996d452d2645e70c01c11143ca2d3742734a28da2bf61f25c82bdc288c9e637  ./gradle/wrapp
 af835f98787e9269af5a046edcb821a592fed372139df7b947b471a63cfc236b  ./gradlew.bat
 6508c1f0c0868a870d2bb30c52510c530bbb1376d781c37f0ff441056a2e0de9  ./scripts/check_event_streams.py
 8f04c640b7996f19386c7e9417f96172f23b6a252d27b36a149d4c235179ebc0  ./scripts/conftest.py
+2832e67bea232401bd749ec4656340f01b8a887257ed974c0196bec7ff9cd6a9  ./scripts/freeze-source-manifest.sh
 0fd67ce0a996105fd5d0476ae4aadfdc50634c94529f2a2196ed6db5fe8b434f  ./scripts/oklch_to_hex.py
 f311fa6dc41e47f18cad72e909866483bb28275a742bf5ad7d2e5f6c4b0583a0  ./scripts/test_oklch_to_hex.py
 442e3da024ec6614a0be709038f47e518908330dad67fb2ae2739a91b413fe74  ./scripts/theme_tokens.json

@@ -17,6 +17,10 @@ The private signing key is never committed and is not provided to pull-request C
 
 Losing or replacing the private signing key breaks seamless Android updates for already-installed releases, so a debug key is never accepted for maintained installation.
 
+## Source manifest
+
+Regenerate the deterministic maintained-source checksum set only through `./scripts/freeze-source-manifest.sh`. Generated Gradle/IDE state (`build/`, `app/build/`, `.gradle/`, `.idea/`) is deliberately excluded so a fresh checkout can verify the same manifest.
+
 ## Release gates
 
 1. `./scripts/verify-hypershell.sh static`
