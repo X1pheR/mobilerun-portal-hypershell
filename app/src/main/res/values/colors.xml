@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--
+        Mobilerun design tokens.
+        Source: docs/superpowers/specs/2026-05-20-android-theme-redesign-design.md
+        Each value is the OKLCH-spec color converted to sRGB via scripts/oklch_to_hex.py.
+        Light-mode hex values live here. Dark overrides live in values-night/colors.xml
+        under the same names.
+    -->
+
+    <!-- Surface tokens -->
+    <color name="mobilerun_background">#FBFAF7</color>             <!-- oklch(0.985 0.004 85) -->
+    <color name="mobilerun_foreground">#272320</color>             <!-- oklch(0.26 0.008 65)   -->
+    <color name="mobilerun_card">#FFFDFA</color>                   <!-- oklch(0.995 0.005 85)  -->
+    <color name="mobilerun_card_foreground">#272320</color>        <!-- oklch(0.26 0.008 65)   -->
+    <color name="mobilerun_popover">#FFFDFA</color>                <!-- oklch(0.995 0.005 85)  -->
+    <color name="mobilerun_popover_foreground">#272320</color>     <!-- oklch(0.26 0.008 65)   -->
+
+    <!-- Brand -->
+    <color name="mobilerun_primary">#4566D9</color>                <!-- oklch(0.55 0.18 268)   -->
+    <color name="mobilerun_primary_foreground">#F7F8FC</color>     <!-- oklch(0.98 0.005 268)  -->
+    <color name="mobilerun_secondary">#F3F0EA</color>              <!-- oklch(0.955 0.008 85)  -->
+    <color name="mobilerun_secondary_foreground">#272320</color>   <!-- oklch(0.26 0.008 65)   -->
+
+    <!-- Muted / accent / destructive -->
+    <color name="mobilerun_muted">#F3F0EA</color>                  <!-- oklch(0.955 0.008 85)  -->
+    <color name="mobilerun_muted_foreground">#76706C</color>       <!-- oklch(0.55 0.01 65)    -->
+    <color name="mobilerun_accent">#E0EBFF</color>                 <!-- oklch(0.94 0.04 268)   -->
+    <color name="mobilerun_accent_foreground">#273C81</color>      <!-- oklch(0.38 0.12 268)   -->
+    <color name="mobilerun_destructive">#C74C41</color>            <!-- oklch(0.58 0.16 28)    -->
+    <color name="mobilerun_destructive_foreground">#FDFCF9</color> <!-- oklch(0.99 0.003 85)   -->
+
+    <!-- Structural -->
+    <color name="mobilerun_border">#E6E4E0</color>                 <!-- oklch(0.92 0.006 85)   -->
+    <color name="mobilerun_input">#F5F3EF</color>                  <!-- oklch(0.965 0.006 85)  -->
+    <color name="mobilerun_ring">#4566D9</color>                   <!-- oklch(0.55 0.18 268)   -->
+
+    <!-- Chart palette -->
+    <color name="chart_1">#4566D9</color>  <!-- violet -->
+    <color name="chart_2">#00A0C5</color>  <!-- blue   -->
+    <color name="chart_3">#9878E5</color>  <!-- purple -->
+    <color name="chart_4">#CD9130</color>  <!-- amber  -->
+    <color name="chart_5">#009A7B</color>  <!-- teal   -->
+
+    <!-- Sidebar (reserved; aliased to base tokens) -->
+    <color name="mobilerun_sidebar">@color/mobilerun_background</color>
+    <color name="mobilerun_sidebar_foreground">@color/mobilerun_foreground</color>
+    <color name="mobilerun_sidebar_border">@color/mobilerun_border</color>
+
+    <!-- Shadow (spec shadow-color = hsl(30 25% 12%)) -->
+    <color name="mobilerun_shadow">#27241F</color>
+
+    <!-- Ripple highlight: primary @ ~13% alpha (0x22). Drop the # off mobilerun_primary and prepend #22. -->
+    <color name="mobilerun_ripple">#224566D9</color>
+
+    <!-- Icon defaults: track foreground/muted-foreground so vectors flip with mode. -->
+    <color name="icon_default">@color/mobilerun_foreground</color>
+    <color name="icon_muted">@color/mobilerun_muted_foreground</color>
+    <color name="icon_success">@color/mobilerun_primary</color>
+    <color name="icon_destructive">@color/mobilerun_destructive</color>
+
+    <!-- Divider (absorbed from colors_extra.xml) -->
+    <color name="divider_color">@color/mobilerun_border</color>
+
+    <!-- Common ARGB literals kept for any direct XML drawable usage -->
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <!--
+        Legacy aliases.
+        themes.xml currently references these old token names. Task 14 will rewrite
+        themes.xml and we can drop these aliases. Until then they map legacy names
+        to the closest new-palette equivalent so the build stays green.
+    -->
+    <color name="mobilerun_divider">@color/mobilerun_border</color>
+    <color name="mobilerun_text_light">@color/mobilerun_foreground</color>
+    <color name="mobilerun_error">@color/mobilerun_destructive</color>
+    <color name="mobilerun_success">@color/chart_5</color>
+    <color name="mobilerun_warning">@color/chart_4</color>
+    <color name="background_primary">@color/mobilerun_background</color>
+    <color name="background_card">@color/mobilerun_card</color>
+    <color name="background_input">@color/mobilerun_input</color>
+    <color name="background_code">@color/mobilerun_muted</color>
+    <!--
+        Status / alert recolor pass: the original layouts use loud, saturated
+        backgrounds for alerts. Remapped to subtle muted-tinted backgrounds so
+        the alert cards read as "informational chrome" rather than "alarm." The
+        action button inside each alert keeps the accent colour so the severity
+        is still legible.
+    -->
+    <color name="alert_warning_bg">@color/alert_warning_tint</color>
+    <color name="alert_warning_button">@color/mobilerun_warning_strong</color>
+    <color name="alert_error_bg">@color/alert_error_tint</color>
+    <color name="alert_error_button">@color/mobilerun_destructive</color>
+    <color name="status_success">@color/mobilerun_primary</color>
+    <color name="status_error">@color/mobilerun_destructive</color>
+
+    <!-- Soft alert tint backgrounds (light mode). values-night/colors.xml overrides for dark. -->
+    <color name="alert_warning_tint">#1FE2A140</color>          <!-- ~12% alpha amber over light bg -->
+    <color name="alert_error_tint">#1FE05050</color>            <!-- ~12% alpha red over light bg -->
+    <color name="mobilerun_warning_strong">@color/chart_4</color>
+    <color name="text_gray">@color/mobilerun_muted_foreground</color>
+    <color name="text_gray_light">@color/mobilerun_muted_foreground</color>
+    <color name="text_gray_dark">@color/mobilerun_muted_foreground</color>
+    <color name="text_hint">@color/mobilerun_muted_foreground</color>
+    <color name="text_white">@color/mobilerun_foreground</color>
+    <color name="stroke_gray">@color/mobilerun_border</color>
+    <color name="task_prompt_card_surface">@color/mobilerun_card</color>
+    <color name="task_prompt_input_surface">@color/mobilerun_input</color>
+    <color name="task_prompt_stroke">@color/mobilerun_border</color>
+    <color name="task_prompt_text_primary">@color/mobilerun_foreground</color>
+    <color name="task_prompt_text_secondary">@color/mobilerun_muted_foreground</color>
+    <!--
+        task_prompt_accent* are used upstream as INTERACTIVE accents (tab
+        indicator, spinner tints, icon tints, submit button bg, cursor) and as
+        accent TEXT. mobilerun_accent is a pastel surface tint and is illegible
+        in those roles in light mode, so both route to primary instead.
+    -->
+    <color name="task_prompt_accent">@color/mobilerun_primary</color>
+    <color name="task_prompt_accent_light">@color/mobilerun_primary</color>
+    <color name="task_prompt_error">@color/mobilerun_destructive</color>
+    <color name="task_prompt_chip_info_bg">@color/mobilerun_muted</color>
+    <color name="task_prompt_chip_success_bg">@color/mobilerun_muted</color>
+    <color name="task_prompt_chip_error_bg">@color/alert_error_tint</color>
+    <color name="http_get">@color/mobilerun_primary</color>
+    <color name="http_post">@color/chart_2</color>
+
+    <!-- Dashboard task status colors (upstream 19b44e1), mapped onto tokens.
+         All resolve through tokens with values-night overrides, so they flip
+         with DayNight automatically. -->
+    <color name="task_status_completed">@color/status_success</color>
+    <color name="task_status_failed">@color/status_error</color>
+    <color name="task_status_cancelled">@color/mobilerun_muted_foreground</color>
+    <color name="task_status_cancelling">@color/mobilerun_warning</color>
+    <color name="task_status_running">@color/mobilerun_warning</color>
+    <color name="task_status_created">@color/chart_2</color>
+    <color name="task_status_paused">@color/mobilerun_warning</color>
+    <color name="task_status_tracking_timeout">@color/mobilerun_muted_foreground</color>
+    <color name="task_status_unknown">@color/mobilerun_muted_foreground</color>
+    <color name="task_status_ring_empty">@color/mobilerun_border</color>
+</resources>

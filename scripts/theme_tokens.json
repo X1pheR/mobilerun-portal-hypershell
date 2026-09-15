@@ -1,0 +1,518 @@
+{
+  "light": {
+    "background": {
+      "oklch": [
+        0.985,
+        0.004,
+        85
+      ],
+      "hex": "#FBFAF7"
+    },
+    "foreground": {
+      "oklch": [
+        0.26,
+        0.008,
+        65
+      ],
+      "hex": "#272320"
+    },
+    "card": {
+      "oklch": [
+        0.995,
+        0.005,
+        85
+      ],
+      "hex": "#FFFDFA"
+    },
+    "card_foreground": {
+      "oklch": [
+        0.26,
+        0.008,
+        65
+      ],
+      "hex": "#272320"
+    },
+    "popover": {
+      "oklch": [
+        0.995,
+        0.005,
+        85
+      ],
+      "hex": "#FFFDFA"
+    },
+    "popover_foreground": {
+      "oklch": [
+        0.26,
+        0.008,
+        65
+      ],
+      "hex": "#272320"
+    },
+    "primary": {
+      "oklch": [
+        0.55,
+        0.18,
+        268
+      ],
+      "hex": "#4566D9"
+    },
+    "primary_foreground": {
+      "oklch": [
+        0.98,
+        0.005,
+        268
+      ],
+      "hex": "#F7F8FC"
+    },
+    "secondary": {
+      "oklch": [
+        0.955,
+        0.008,
+        85
+      ],
+      "hex": "#F3F0EA"
+    },
+    "secondary_foreground": {
+      "oklch": [
+        0.26,
+        0.008,
+        65
+      ],
+      "hex": "#272320"
+    },
+    "muted": {
+      "oklch": [
+        0.955,
+        0.008,
+        85
+      ],
+      "hex": "#F3F0EA"
+    },
+    "muted_foreground": {
+      "oklch": [
+        0.55,
+        0.01,
+        65
+      ],
+      "hex": "#76706C"
+    },
+    "accent": {
+      "oklch": [
+        0.94,
+        0.04,
+        268
+      ],
+      "hex": "#E0EBFF"
+    },
+    "accent_foreground": {
+      "oklch": [
+        0.38,
+        0.12,
+        268
+      ],
+      "hex": "#273C81"
+    },
+    "destructive": {
+      "oklch": [
+        0.58,
+        0.16,
+        28
+      ],
+      "hex": "#C74C41"
+    },
+    "destructive_foreground": {
+      "oklch": [
+        0.99,
+        0.003,
+        85
+      ],
+      "hex": "#FDFCF9"
+    },
+    "border": {
+      "oklch": [
+        0.92,
+        0.006,
+        85
+      ],
+      "hex": "#E6E4E0"
+    },
+    "input": {
+      "oklch": [
+        0.965,
+        0.006,
+        85
+      ],
+      "hex": "#F5F3EF"
+    },
+    "ring": {
+      "oklch": [
+        0.55,
+        0.18,
+        268
+      ],
+      "hex": "#4566D9"
+    },
+    "chart_1": {
+      "oklch": [
+        0.55,
+        0.18,
+        268
+      ],
+      "hex": "#4566D9"
+    },
+    "chart_2": {
+      "oklch": [
+        0.65,
+        0.13,
+        220
+      ],
+      "hex": "#00A0C5"
+    },
+    "chart_3": {
+      "oklch": [
+        0.65,
+        0.16,
+        295
+      ],
+      "hex": "#9878E5"
+    },
+    "chart_4": {
+      "oklch": [
+        0.7,
+        0.13,
+        75
+      ],
+      "hex": "#CD9130"
+    },
+    "chart_5": {
+      "oklch": [
+        0.6,
+        0.14,
+        175
+      ],
+      "hex": "#009A7B"
+    },
+    "sidebar": {
+      "oklch": [
+        0.97,
+        0.006,
+        85
+      ],
+      "hex": "#F7F5F1"
+    },
+    "sidebar_foreground": {
+      "oklch": [
+        0.3,
+        0.008,
+        65
+      ],
+      "hex": "#312D2A"
+    },
+    "sidebar_primary": {
+      "oklch": [
+        0.55,
+        0.18,
+        268
+      ],
+      "hex": "#4566D9"
+    },
+    "sidebar_primary_foreground": {
+      "oklch": [
+        0.98,
+        0.005,
+        268
+      ],
+      "hex": "#F7F8FC"
+    },
+    "sidebar_accent": {
+      "oklch": [
+        0.94,
+        0.04,
+        268
+      ],
+      "hex": "#E0EBFF"
+    },
+    "sidebar_accent_foreground": {
+      "oklch": [
+        0.38,
+        0.12,
+        268
+      ],
+      "hex": "#273C81"
+    },
+    "sidebar_border": {
+      "oklch": [
+        0.92,
+        0.006,
+        85
+      ],
+      "hex": "#E6E4E0"
+    },
+    "sidebar_ring": {
+      "oklch": [
+        0.55,
+        0.18,
+        268
+      ],
+      "hex": "#4566D9"
+    }
+  },
+  "dark": {
+    "background": {
+      "oklch": [
+        0.16,
+        0.006,
+        60
+      ],
+      "hex": "#0F0D0B"
+    },
+    "foreground": {
+      "oklch": [
+        0.92,
+        0.005,
+        85
+      ],
+      "hex": "#E6E4E1"
+    },
+    "card": {
+      "oklch": [
+        0.19,
+        0.006,
+        60
+      ],
+      "hex": "#161311"
+    },
+    "card_foreground": {
+      "oklch": [
+        0.92,
+        0.005,
+        85
+      ],
+      "hex": "#E6E4E1"
+    },
+    "popover": {
+      "oklch": [
+        0.21,
+        0.006,
+        60
+      ],
+      "hex": "#1A1816"
+    },
+    "popover_foreground": {
+      "oklch": [
+        0.9,
+        0.005,
+        85
+      ],
+      "hex": "#DFDEDA"
+    },
+    "primary": {
+      "oklch": [
+        0.72,
+        0.16,
+        265
+      ],
+      "hex": "#73A0FF"
+    },
+    "primary_foreground": {
+      "oklch": [
+        0.18,
+        0.02,
+        268
+      ],
+      "hex": "#0E111B"
+    },
+    "secondary": {
+      "oklch": [
+        0.22,
+        0.006,
+        60
+      ],
+      "hex": "#1D1A18"
+    },
+    "secondary_foreground": {
+      "oklch": [
+        0.92,
+        0.005,
+        85
+      ],
+      "hex": "#E6E4E1"
+    },
+    "muted": {
+      "oklch": [
+        0.21,
+        0.006,
+        60
+      ],
+      "hex": "#1A1816"
+    },
+    "muted_foreground": {
+      "oklch": [
+        0.68,
+        0.008,
+        65
+      ],
+      "hex": "#9C9793"
+    },
+    "accent": {
+      "oklch": [
+        0.28,
+        0.06,
+        268
+      ],
+      "hex": "#1C2746"
+    },
+    "accent_foreground": {
+      "oklch": [
+        0.86,
+        0.08,
+        268
+      ],
+      "hex": "#BAD0FF"
+    },
+    "destructive": {
+      "oklch": [
+        0.55,
+        0.18,
+        28
+      ],
+      "hex": "#C5372F"
+    },
+    "destructive_foreground": {
+      "oklch": [
+        0.95,
+        0.005,
+        85
+      ],
+      "hex": "#F0EEEB"
+    },
+    "border": {
+      "oklch": [
+        0.25,
+        0.006,
+        60
+      ],
+      "hex": "#24211F"
+    },
+    "input": {
+      "oklch": [
+        0.23,
+        0.006,
+        60
+      ],
+      "hex": "#1F1C1A"
+    },
+    "ring": {
+      "oklch": [
+        0.72,
+        0.16,
+        265
+      ],
+      "hex": "#73A0FF"
+    },
+    "chart_1": {
+      "oklch": [
+        0.72,
+        0.16,
+        265
+      ],
+      "hex": "#73A0FF"
+    },
+    "chart_2": {
+      "oklch": [
+        0.74,
+        0.13,
+        220
+      ],
+      "hex": "#1EBDE3"
+    },
+    "chart_3": {
+      "oklch": [
+        0.72,
+        0.15,
+        295
+      ],
+      "hex": "#AC8FF8"
+    },
+    "chart_4": {
+      "oklch": [
+        0.78,
+        0.12,
+        75
+      ],
+      "hex": "#E4AC59"
+    },
+    "chart_5": {
+      "oklch": [
+        0.7,
+        0.12,
+        175
+      ],
+      "hex": "#30B69A"
+    },
+    "sidebar": {
+      "oklch": [
+        0.18,
+        0.006,
+        60
+      ],
+      "hex": "#14110F"
+    },
+    "sidebar_foreground": {
+      "oklch": [
+        0.88,
+        0.005,
+        85
+      ],
+      "hex": "#D9D7D4"
+    },
+    "sidebar_primary": {
+      "oklch": [
+        0.72,
+        0.16,
+        265
+      ],
+      "hex": "#73A0FF"
+    },
+    "sidebar_primary_foreground": {
+      "oklch": [
+        0.18,
+        0.02,
+        268
+      ],
+      "hex": "#0E111B"
+    },
+    "sidebar_accent": {
+      "oklch": [
+        0.28,
+        0.06,
+        268
+      ],
+      "hex": "#1C2746"
+    },
+    "sidebar_accent_foreground": {
+      "oklch": [
+        0.86,
+        0.08,
+        268
+      ],
+      "hex": "#BAD0FF"
+    },
+    "sidebar_border": {
+      "oklch": [
+        0.25,
+        0.006,
+        60
+      ],
+      "hex": "#24211F"
+    },
+    "sidebar_ring": {
+      "oklch": [
+        0.72,
+        0.16,
+        265
+      ],
+      "hex": "#73A0FF"
+    }
+  }
+}

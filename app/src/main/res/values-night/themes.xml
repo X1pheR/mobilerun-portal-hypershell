@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <!--
+        Night-mode definition of Theme.Mobilerun.
+        Extends Base.Theme.Mobilerun (defined in values/themes.xml - Android resolves
+        the parent reference against the merged resource table, so this works fine).
+        Inherits every shared attr (colors via @color/* DayNight resolution, fonts,
+        shapes, component styles, transitions) and adds only the two per-mode bits.
+    -->
+    <style name="Theme.Mobilerun" parent="Base.Theme.Mobilerun">
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="fontFamilyMono">@font/anonymous_pro</item>
+    </style>
+</resources>

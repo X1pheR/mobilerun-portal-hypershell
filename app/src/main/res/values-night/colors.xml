@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--
+        Mobilerun design tokens - DARK overrides.
+        Same names as values/colors.xml; Android DayNight resolves between them.
+    -->
+
+    <!-- Surface tokens -->
+    <color name="mobilerun_background">#0F0D0B</color>             <!-- oklch(0.16 0.006 60)   -->
+    <color name="mobilerun_foreground">#E6E4E1</color>             <!-- oklch(0.92 0.005 85)   -->
+    <color name="mobilerun_card">#161311</color>                   <!-- oklch(0.19 0.006 60)   -->
+    <color name="mobilerun_card_foreground">#E6E4E1</color>        <!-- oklch(0.92 0.005 85)   -->
+    <color name="mobilerun_popover">#1A1816</color>                <!-- oklch(0.21 0.006 60)   -->
+    <color name="mobilerun_popover_foreground">#DFDEDA</color>     <!-- oklch(0.9  0.005 85)   -->
+
+    <!-- Brand -->
+    <color name="mobilerun_primary">#73A0FF</color>                <!-- oklch(0.72 0.16 265)   -->
+    <color name="mobilerun_primary_foreground">#0E111B</color>     <!-- oklch(0.18 0.02 268)   -->
+    <color name="mobilerun_secondary">#1D1A18</color>              <!-- oklch(0.22 0.006 60)   -->
+    <color name="mobilerun_secondary_foreground">#E6E4E1</color>   <!-- oklch(0.92 0.005 85)   -->
+
+    <!-- Muted / accent / destructive -->
+    <color name="mobilerun_muted">#1A1816</color>                  <!-- oklch(0.21 0.006 60)   -->
+    <color name="mobilerun_muted_foreground">#9C9793</color>       <!-- oklch(0.68 0.008 65)   -->
+    <color name="mobilerun_accent">#1C2746</color>                 <!-- oklch(0.28 0.06 268)   -->
+    <color name="mobilerun_accent_foreground">#BAD0FF</color>      <!-- oklch(0.86 0.08 268)   -->
+    <color name="mobilerun_destructive">#C5372F</color>            <!-- oklch(0.55 0.18 28)    -->
+    <color name="mobilerun_destructive_foreground">#F0EEEB</color> <!-- oklch(0.95 0.005 85)   -->
+
+    <!-- Structural -->
+    <color name="mobilerun_border">#24211F</color>                 <!-- oklch(0.25 0.006 60)   -->
+    <color name="mobilerun_input">#1F1C1A</color>                  <!-- oklch(0.23 0.006 60)   -->
+    <color name="mobilerun_ring">#73A0FF</color>                   <!-- oklch(0.72 0.16 265)   -->
+
+    <!-- Chart palette -->
+    <color name="chart_1">#73A0FF</color>
+    <color name="chart_2">#1EBDE3</color>
+    <color name="chart_3">#AC8FF8</color>
+    <color name="chart_4">#E4AC59</color>
+    <color name="chart_5">#30B69A</color>
+
+    <!-- Ripple highlight: primary @ ~13% alpha (0x22). Uses the DARK primary hex. -->
+    <color name="mobilerun_ripple">#2273A0FF</color>
+
+    <!-- Soft alert tint backgrounds (dark mode override). Slightly higher alpha
+         so the tint reads against the darker surface. -->
+    <color name="alert_warning_tint">#33E2A140</color>          <!-- ~20% alpha amber over dark bg -->
+    <color name="alert_error_tint">#33E05050</color>            <!-- ~20% alpha red over dark bg -->
+</resources>

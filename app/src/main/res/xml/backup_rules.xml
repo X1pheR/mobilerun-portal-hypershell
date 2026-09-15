@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+   Backup rules file for API < 31.
+   See https://developer.android.com/guide/topics/data/autobackup
+-->
+<full-backup-content>
+    <!-- Exclude device_id from backup to ensure unique IDs per device/emulator -->
+    <exclude domain="sharedpref" path="mobilerun_device.xml"/>
+    <exclude domain="sharedpref" path="mobilerun_secrets.xml"/>
+</full-backup-content>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Spec signature touch: primary buttons get a top-light gradient overlay.
+    From the design spec:
+        linear-gradient(to bottom,
+            hsl(0 0% 100% / 0.1),
+            hsl(0 0% 0% / 0.04))
+    Layer 1: solid primary color (DayNight-aware via @color/mobilerun_primary).
+    Layer 2: subtle white to black vertical gradient overlay.
+    Corner radius 18dp ties to ShapeAppearance.Mobilerun.Medium - keep in sync if that changes.
+-->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="@color/mobilerun_primary" />
+            <corners android:radius="18dp" />
+        </shape>
+    </item>
+    <item>
+        <shape android:shape="rectangle">
+            <gradient
+                android:startColor="#1AFFFFFF"
+                android:endColor="#0A000000"
+                android:angle="270" />
+            <corners android:radius="18dp" />
+        </shape>
+    </item>
+</layer-list>

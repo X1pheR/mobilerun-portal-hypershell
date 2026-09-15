@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="20dp"
+    app:cardBackgroundColor="@color/task_prompt_card_surface"
+    app:cardCornerRadius="18dp"
+    app:cardElevation="0dp"
+    app:strokeColor="@color/task_prompt_stroke"
+    app:strokeWidth="1dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="18dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="top|center_vertical"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/task_prompt_card_title"
+                    android:textColor="@color/task_prompt_text_primary"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginBottom="16dp"
+                    android:text="@string/task_prompt_card_subtitle"
+                    android:textColor="@color/task_prompt_text_secondary"
+                    android:textSize="13sp" />
+
+            </LinearLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/task_prompt_history_button"
+                style="@style/Widget.MaterialComponents.Button.TextButton"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:minWidth="0dp"
+                android:paddingHorizontal="0dp"
+                android:text="@string/task_prompt_history_button"
+                android:textAllCaps="false"
+                android:textColor="@color/task_prompt_accent_light"
+                app:backgroundTint="@android:color/transparent"
+                app:rippleColor="@color/task_prompt_chip_info_bg" />
+
+        </LinearLayout>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/task_prompt_task_state_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="14dp"
+            android:visibility="gone"
+            app:cardBackgroundColor="@color/task_prompt_input_surface"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="0dp"
+            app:strokeColor="@color/task_prompt_stroke"
+            app:strokeWidth="1dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:foreground="?attr/selectableItemBackground"
+                android:orientation="vertical"
+                android:padding="14dp">
+
+                <TextView
+                    android:id="@+id/task_prompt_latest_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:text="@string/task_prompt_latest_task_label"
+                    android:textColor="@color/task_prompt_text_secondary"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    android:visibility="gone" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/task_prompt_task_state_chip"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingStart="10dp"
+                        android:paddingTop="6dp"
+                        android:paddingEnd="10dp"
+                        android:paddingBottom="6dp"
+                        android:textColor="@color/task_prompt_text_primary"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/task_prompt_task_state_detail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:ellipsize="end"
+                    android:maxLines="2"
+                    android:textColor="@color/task_prompt_text_primary"
+                    android:textSize="14sp"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/task_prompt_task_state_summary"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:textColor="@color/task_prompt_text_secondary"
+                    android:textSize="13sp"
+                    android:visibility="gone" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/task_prompt_cancel_button"
+                    style="@style/Widget.MaterialComponents.Button.TextButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="12dp"
+                    android:paddingHorizontal="0dp"
+                    android:text="@string/task_prompt_cancel_button"
+                    android:textAllCaps="false"
+                    android:textColor="@color/task_prompt_error"
+                    android:visibility="gone"
+                    app:backgroundTint="@android:color/transparent"
+                    app:iconTint="@color/task_prompt_error"
+                    app:rippleColor="@color/task_prompt_chip_error_bg" />
+
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/task_prompt_input_layout"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/task_prompt_hint"
+            app:boxBackgroundColor="@color/task_prompt_input_surface"
+            app:boxCornerRadiusBottomEnd="14dp"
+            app:boxCornerRadiusBottomStart="14dp"
+            app:boxCornerRadiusTopEnd="14dp"
+            app:boxCornerRadiusTopStart="14dp"
+            app:boxStrokeColor="@color/task_prompt_stroke"
+            app:hintTextColor="@color/task_prompt_text_secondary">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/task_prompt_input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:gravity="top|start"
+                android:inputType="textCapSentences|textMultiLine"
+                android:maxLines="6"
+                android:minLines="3"
+                android:textColor="@color/task_prompt_text_primary"
+                android:textColorHint="@color/task_prompt_text_secondary"
+                android:textCursorDrawable="@drawable/task_prompt_cursor" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <include
+            android:id="@+id/task_prompt_settings_panel"
+            layout="@layout/view_task_prompt_settings_panel" />
+
+        <com.google.android.material.switchmaterial.SwitchMaterial
+            android:id="@+id/task_prompt_return_to_portal_switch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:text="@string/task_prompt_return_to_portal"
+            android:textColor="@color/task_prompt_text_primary" />
+
+        <TextView
+            android:id="@+id/task_prompt_status_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:textColor="@color/task_prompt_text_secondary"
+            android:textSize="12sp"
+            android:visibility="gone" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/task_prompt_retry_models_button"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginTop="8dp"
+            android:minWidth="0dp"
+            android:paddingHorizontal="0dp"
+            android:text="@string/task_prompt_retry_models"
+            android:textAllCaps="false"
+            android:textColor="@color/task_prompt_accent_light"
+            android:visibility="gone"
+            app:backgroundTint="@android:color/transparent"
+            app:rippleColor="@color/task_prompt_chip_info_bg" />
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginTop="16dp">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/task_prompt_submit_button"
+                style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/task_prompt_submit"
+                android:textAllCaps="false"
+                android:textColor="@color/mobilerun_primary_foreground"
+                app:backgroundTint="@color/task_prompt_accent"
+                app:cornerRadius="12dp" />
+
+            <com.google.android.material.progressindicator.CircularProgressIndicator
+                android:id="@+id/task_prompt_submit_progress"
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:layout_gravity="end|center_vertical"
+                android:layout_marginEnd="18dp"
+                android:indeterminate="true"
+                android:visibility="gone"
+                app:indicatorColor="@color/mobilerun_primary_foreground"
+                app:indicatorSize="18dp"
+                app:trackColor="@color/task_prompt_chip_success_bg"
+                app:trackThickness="2dp" />
+
+        </FrameLayout>
+
+    </LinearLayout>
+
+</com.google.android.material.card.MaterialCardView>

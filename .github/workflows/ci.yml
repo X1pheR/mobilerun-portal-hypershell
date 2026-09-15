@@ -1,0 +1,59 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Verify unit tests
+        env:
+          HYPERSHELL_GRADLE_CACHE: ${{ runner.temp }}/mobilerun-gradle-cache
+        run: ./scripts/verify-hypershell.sh tests
+
+      - name: Verify debug APK contract
+        env:
+          HYPERSHELL_GRADLE_CACHE: ${{ runner.temp }}/mobilerun-gradle-cache
+        run: ./scripts/verify-hypershell.sh apk
+
+      - name: Android lint
+        env:
+          HYPERSHELL_GRADLE_CACHE: ${{ runner.temp }}/mobilerun-gradle-cache
+        run: |
+          set -euo pipefail
+          docker build --pull=false -q -t hypershell/mobilerun-portal-builder:android35-sdk34-v1 tools/android-builder >/dev/null
+          mkdir -p "$HYPERSHELL_GRADLE_CACHE"
+          docker run --rm --user "$(id -u):$(id -g)" \
+            -e HOME=/tmp/home -e GRADLE_USER_HOME=/gradle-cache \
+            -v "$PWD:/work" -v "$HYPERSHELL_GRADLE_CACHE:/gradle-cache" -w /work \
+            hypershell/mobilerun-portal-builder:android35-sdk34-v1 \
+            bash -lc 'mkdir -p "$HOME" && ./gradlew :app:lintAnalyzeDebug :app:lintReportDebug -Pkotlin.compiler.execution.strategy=in-process --no-daemon'
+
+      - name: Trivy source gate
+        run: |
+          set -euo pipefail
+          docker run --rm -v "$PWD:/src:ro" aquasec/trivy:0.74.0 fs \
+            --scanners vuln,secret,misconfig \
+            --severity HIGH,CRITICAL \
+            --exit-code 1 \
+            --skip-dirs /src/app/build \
+            --skip-dirs /src/.gradle \
+            /src
+
+      - name: Upload debug APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: mobilerun-portal-hypershell-debug
+          path: app/build/outputs/apk/debug/eu.hypershell.mobilerun.portal-0.7.25-hypershell.1-debug.apk
+          if-no-files-found: error
+          retention-days: 7
