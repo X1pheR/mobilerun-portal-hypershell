@@ -211,6 +211,23 @@ def _single_profile_settings_file() -> tempfile.NamedTemporaryFile:
     return temporary
 
 
+def normalize_signing_password(value: str) -> str:
+    # Bitwarden text secrets created from a line-oriented private import file may
+    # retain exactly one terminal line ending. Treat that encoding delimiter as
+    # transport formatting, but keep the password contract strict otherwise.
+    if value.endswith("\r\n"):
+        value = value[:-2]
+    elif value.endswith("\n") or value.endswith("\r"):
+        value = value[:-1]
+    if (
+        not value
+        or len(value) > MAX_PASSWORD_LENGTH
+        or any(character in value for character in "\x00\r\n")
+    ):
+        raise ReleaseError("Bitwarden signing password format is invalid")
+    return value
+
+
 def resolve_signing_material() -> tuple[bytes, str]:
     try:
         from bitwarden_secrets_manager_mcp.config import Settings
@@ -245,12 +262,7 @@ def resolve_signing_material() -> tuple[bytes, str]:
         except Exception as exc:
             raise ReleaseError("Bitwarden signing material could not be resolved") from exc
 
-        if (
-            not password
-            or len(password) > MAX_PASSWORD_LENGTH
-            or any(character in password for character in "\x00\r\n")
-        ):
-            raise ReleaseError("Bitwarden signing password format is invalid")
+        password = normalize_signing_password(password)
         keystore = decode_keystore(keystore_b64)
         return keystore, password
     finally:

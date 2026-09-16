@@ -25,6 +25,18 @@ class ReleaseSignedApkTests(unittest.TestCase):
         with self.assertRaisesRegex(module.ReleaseError, "size"):
             module.decode_keystore(base64.b64encode(payload).decode("ascii"))
 
+    def test_signing_password_normalizes_one_terminal_line_ending_only(self):
+        self.assertEqual(module.normalize_signing_password("secret"), "secret")
+        self.assertEqual(module.normalize_signing_password("secret\n"), "secret")
+        self.assertEqual(module.normalize_signing_password("secret\r"), "secret")
+        self.assertEqual(module.normalize_signing_password("secret\r\n"), "secret")
+        for value in ("", "\n", "secret\n\n", "secret\nvalue", "secret\x00value"):
+            with self.subTest(value=repr(value)):
+                with self.assertRaisesRegex(module.ReleaseError, "password format"):
+                    module.normalize_signing_password(value)
+        with self.assertRaisesRegex(module.ReleaseError, "password format"):
+            module.normalize_signing_password("x" * (module.MAX_PASSWORD_LENGTH + 1))
+
     def test_private_signing_files_are_private_and_removed_after_success(self):
         root = None
         key_path = None
