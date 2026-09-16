@@ -107,12 +107,13 @@ script_root=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")/.." && pwd -P)
   exit 1
 }
 
-for required in "$BSM_PROFILES" "$BSM_TOKEN"; do
-  [[ -f $required ]] || {
-    echo "required protected release input is unavailable" >&2
-    exit 1
-  }
-done
+[[ -f $BSM_PROFILES ]] || {
+  echo "required protected release profile configuration is unavailable" >&2
+  exit 1
+}
+# Do not stat or read the protected Machine Account token from this unprivileged
+# host shell. The Docker daemon owns the bind-source existence/access check below;
+# --mount type=bind fails closed when the configured source is unavailable.
 for required in "$WORKTREE_ROOT" "$GRADLE_CACHE" "$STAGE_ROOT"; do
   [[ -d $required ]] || {
     echo "required governed release directory is unavailable" >&2
