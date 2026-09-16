@@ -9,6 +9,8 @@ find . -type f \
   ! -path './build/*' \
   ! -path './app/build/*' \
   ! -path './.idea/*' \
+  ! -path '*/__pycache__/*' \
+  ! -name '*.pyc' \
   ! -path './SOURCE-MANIFEST.sha256' \
   -print0 \
   | sort -z \
