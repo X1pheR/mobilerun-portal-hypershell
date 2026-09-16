@@ -326,8 +326,13 @@ def drop_build_privileges(signing_root: Path, keystore_path: Path) -> None:
             raise ReleaseError("release build identity is missing or invalid")
         if not STAGE_ROOT.is_dir() or not GRADLE_CACHE.is_dir():
             raise ReleaseError("release staging/cache mounts are unavailable")
-        os.chown(signing_root, BUILD_UID, BUILD_GID)
+        # Keep the private 0700 directory root-owned until every child that the
+        # unprivileged build identity needs has been transferred. With the
+        # deliberately narrow capability set (no CAP_DAC_OVERRIDE), changing
+        # the directory owner first would make the remaining child unreachable
+        # to this root process before the privilege drop completes.
         os.chown(keystore_path, BUILD_UID, BUILD_GID)
+        os.chown(signing_root, BUILD_UID, BUILD_GID)
         os.setgroups([])
         os.setgid(BUILD_GID)
         os.setuid(BUILD_UID)

@@ -156,6 +156,34 @@ class ReleaseSignedApkTests(unittest.TestCase):
             with self.assertRaisesRegex(module.ReleaseError, "must start as root"):
                 module.drop_build_privileges(Path("/tmp/x"), Path("/tmp/x/key"))
 
+    def test_drop_privileges_transfers_keystore_before_private_directory(self):
+        calls = []
+        with tempfile.TemporaryDirectory() as temporary:
+            base = Path(temporary)
+            stage = base / "stage"
+            cache = base / "cache"
+            signing_root = base / "signing"
+            keystore = signing_root / "signing.jks"
+            stage.mkdir()
+            cache.mkdir()
+            signing_root.mkdir()
+            keystore.write_bytes(b"x")
+            with (
+                mock.patch.object(module, "STAGE_ROOT", stage),
+                mock.patch.object(module, "GRADLE_CACHE", cache),
+                mock.patch.object(module, "BUILD_UID", 1000),
+                mock.patch.object(module, "BUILD_GID", 2000),
+                mock.patch.object(module.os, "geteuid", side_effect=[0, 1000]),
+                mock.patch.object(module.os, "getegid", side_effect=[0, 2000]),
+                mock.patch.object(module.os, "chown", side_effect=lambda path, uid, gid: calls.append((Path(path), uid, gid))),
+                mock.patch.object(module.os, "setgroups"),
+                mock.patch.object(module.os, "setgid"),
+                mock.patch.object(module.os, "setuid"),
+                mock.patch.object(module, "_linux_process_security_state", return_value={"CapEff": "0000000000000000", "NoNewPrivs": "1"}),
+            ):
+                module.drop_build_privileges(signing_root, keystore)
+        self.assertEqual(calls, [(keystore, 1000, 2000), (signing_root, 1000, 2000)])
+
     def test_executor_image_id_rejects_untrusted_format(self):
         with mock.patch.dict(module.os.environ, {"HYPERSHELL_RELEASE_EXECUTOR_IMAGE_ID": "latest"}, clear=False):
             with self.assertRaisesRegex(module.ReleaseError, "identity"):
