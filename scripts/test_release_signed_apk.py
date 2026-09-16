@@ -10,6 +10,7 @@ import unittest
 from unittest import mock
 
 SCRIPT = Path(__file__).with_name("release-signed-apk.py")
+LAUNCHER = Path(__file__).with_name("run-release-signed-apk.sh")
 spec = importlib.util.spec_from_file_location("release_signed_apk", SCRIPT)
 module = importlib.util.module_from_spec(spec)
 assert spec.loader is not None
@@ -162,6 +163,13 @@ class ReleaseSignedApkTests(unittest.TestCase):
         good = "sha256:" + "a" * 64
         with mock.patch.dict(module.os.environ, {"HYPERSHELL_RELEASE_EXECUTOR_IMAGE_ID": good}, clear=False):
             self.assertEqual(module.executor_image_id(), good)
+
+    def test_launcher_delegates_protected_token_path_check_to_docker_bind_mount(self):
+        source = LAUNCHER.read_text(encoding="utf-8")
+        self.assertIn("[[ -f $BSM_PROFILES ]]", source)
+        self.assertNotIn('for required in "$BSM_PROFILES" "$BSM_TOKEN"', source)
+        self.assertNotIn("[[ -f $BSM_TOKEN ]]", source)
+        self.assertIn('type=bind,src=$BSM_TOKEN,dst=$CONTAINER_BSM_TOKEN,readonly', source)
 
     def test_stage_artifact_is_idempotent_for_same_bytes_and_rejects_conflict(self):
         with tempfile.TemporaryDirectory() as temporary:
