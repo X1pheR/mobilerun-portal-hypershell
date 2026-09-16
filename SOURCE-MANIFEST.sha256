@@ -1,5 +1,5 @@
-496f8b65d727ed808134810eb5ff6e05dc55dc9f1b8632dcecb92c23458355fe  ./.github/workflows/ci.yml
-3acb1260ce30ceeda9ec2345af3aa0918ba810421b4ee4732243eb7efded1219  ./.gitignore
+eb31046dea9f41bf06d4d57f1b5b0a2b0fd10c9bf0d122b9b04de46e08193da7  ./.github/workflows/ci.yml
+7dfd742c642e917ece979eacdc4089c00df4af679c232cd4e9a5bd012919856d  ./.gitignore
 a54cdefe4690b8636b5caf37505eb5ff845f243e8c1f029e40bae4a04c0f7dc8  ./HYPERSHELL.md
 945331c1cfa589694eb6ccc51574a72ee215a01b10bd5556f1b8be8d11bd71ab  ./LICENSE
 b905273d1a5cf2bc96416d2875d90a0d0bd6e5d7d02eb4352c9341e286ad1bdc  ./README.md
@@ -318,7 +318,7 @@ c51ebfc88950468bc3bd189466fb08045df567974b09bda231e518d70c2b17ba  ./app/src/test
 a25f8bb50b2a1b722379e8a04e757e99ee5573dbd2ea8c551c52a25668b1103e  ./build.gradle.kts
 436b22213465c1380928dc89147d430ebbc5eb9a858bd87774901623f54524da  ./code-style.md
 8e22b99b730bf13bc2a54b651b8c48f7caaccaea89799497a7da9208171e7164  ./docs/Frame 27.png
-d67d4db4c1161adc7208aa48545fb7580d620d01d4a1a774f1ac0b997926853b  ./docs/RELEASING.md
+002e9fd6c4197dc63c94b22dcd44d81bb6eea0482a7b9f2d2791fba20685a459  ./docs/RELEASING.md
 d5401167f19a85dbd90bd3eeb9dcc05c291a3adaac21cdb21994b7ac14675dcc  ./docs/hypershell-signing-certificate.pem
 4eb64930231b6bb584494255ba9fb97aa185c271c835cf7254709d8f3e6ba7d4  ./docs/local-api.md
 e0ce0d602a0caccbff55ae9fb7eec469f1d2dd279826446fc1b8520c5e117c6a  ./docs/reverse-connection.md
@@ -332,9 +332,12 @@ e996d452d2645e70c01c11143ca2d3742734a28da2bf61f25c82bdc288c9e637  ./gradle/wrapp
 af835f98787e9269af5a046edcb821a592fed372139df7b947b471a63cfc236b  ./gradlew.bat
 6508c1f0c0868a870d2bb30c52510c530bbb1376d781c37f0ff441056a2e0de9  ./scripts/check_event_streams.py
 8f04c640b7996f19386c7e9417f96172f23b6a252d27b36a149d4c235179ebc0  ./scripts/conftest.py
-2832e67bea232401bd749ec4656340f01b8a887257ed974c0196bec7ff9cd6a9  ./scripts/freeze-source-manifest.sh
+a5bcb5dd5daf24c25887fc115ae377ebd1e1ab377a36794a040d89ff0ecb3287  ./scripts/freeze-source-manifest.sh
 0fd67ce0a996105fd5d0476ae4aadfdc50634c94529f2a2196ed6db5fe8b434f  ./scripts/oklch_to_hex.py
+e6ea8cd4e109309e5c008daa961254aadcccd4263b370441cd3b3f0c7d803fd7  ./scripts/release-signed-apk.py
+708bfad9a66b3aa1c025605b722b2c29ed4e7fcb268e51f374b86fd4544869f1  ./scripts/run-release-signed-apk.sh
 f311fa6dc41e47f18cad72e909866483bb28275a742bf5ad7d2e5f6c4b0583a0  ./scripts/test_oklch_to_hex.py
+fc5354793942de2bd057b09d76b38730526bcd491aae89a7cce901a0e9a34693  ./scripts/test_release_signed_apk.py
 442e3da024ec6614a0be709038f47e518908330dad67fb2ae2739a91b413fe74  ./scripts/theme_tokens.json
 e90ddf02a23da1e5dd36a7b074372364be5b5896f1da30c2fdd43bbeb5145219  ./scripts/verify-hypershell.sh
 bade207ba09fb455b3019c8733eed0302da7978b98acae63bb7cd417e636b1ef  ./settings.gradle.kts
@@ -343,3 +346,4 @@ d0820fcb650a01d4e203448f5ebd22262f9a2a52f48219e2d650fe256ca65c8f  ./static/mobil
 4273e0ea56476538bf01ea09c3e0f83eb40794f7a85548d55f335debfa3aa7ee  ./test_websocket.py
 d91abff396cc4c013a257076d7c65ef60f2702dc4f58d160db086750481643e8  ./tools/android-builder/Dockerfile
 bb20fec648c10b2b1b9cca268f19e9010853e6c5abe8759aa1c691c6605488c4  ./tools/android-builder/README.md
+474441ce3101422330d45f6b574958c1f2952b08453b79ceae6ba09dc86b46a1  ./tools/release-executor/Dockerfile

@@ -16,6 +16,18 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Verify release executor safety boundary
+        run: |
+          set -euo pipefail
+          python3 -m py_compile scripts/release-signed-apk.py scripts/test_release_signed_apk.py
+          python3 -m unittest scripts/test_release_signed_apk.py
+          bash -n scripts/run-release-signed-apk.sh
+          docker build --pull=false -q -t hypershell/mobilerun-portal-release-executor:android35-sdk34-v1 tools/release-executor >/dev/null
+          docker run --rm hypershell/mobilerun-portal-release-executor:android35-sdk34-v1 \
+            python3 -c 'import bitwarden_sdk; from bitwarden_secrets_manager_mcp.config import Settings; from bitwarden_secrets_manager_mcp.provider import SdkProvider'
+          docker run --rm hypershell/mobilerun-portal-release-executor:android35-sdk34-v1 \
+            bash -lc 'command -v keytool >/dev/null; command -v apkanalyzer >/dev/null; test -x "$ANDROID_HOME/build-tools/34.0.0/apksigner"'
+
       - name: Verify unit tests
         env:
           HYPERSHELL_GRADLE_CACHE: ${{ runner.temp }}/mobilerun-gradle-cache
