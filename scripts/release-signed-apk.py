@@ -358,9 +358,14 @@ def drop_build_privileges(signing_root: Path, keystore_path: Path) -> None:
 
 
 def gradle_release_command() -> list[str]:
+    # Protected CI already owns the Android lint quality gate. The signing
+    # executor owns packaging/signature/provenance only and must finish inside
+    # the bounded Reach execution window.
     return [
         "./gradlew",
         ":app:assembleRelease",
+        "-x",
+        "lintVitalRelease",
         "-Pkotlin.compiler.execution.strategy=in-process",
         "--no-daemon",
     ]
@@ -371,6 +376,7 @@ def build_release(repo: Path, keystore_path: Path, password: str, alias: str) ->
     env.update(
         {
             "HOME": "/tmp/home",
+            "ANDROID_USER_HOME": "/tmp/android-home",
             "GRADLE_USER_HOME": str(GRADLE_CACHE),
             "DROIDRUN_KEYSTORE_PATH": str(keystore_path),
             "DROIDRUN_KEYSTORE_PASSWORD": password,
@@ -379,6 +385,7 @@ def build_release(repo: Path, keystore_path: Path, password: str, alias: str) ->
         }
     )
     Path(env["HOME"]).mkdir(parents=True, exist_ok=True)
+    Path(env["ANDROID_USER_HOME"]).mkdir(parents=True, exist_ok=True)
     Path(env["GRADLE_USER_HOME"]).mkdir(parents=True, exist_ok=True)
     _run(
         gradle_release_command(),

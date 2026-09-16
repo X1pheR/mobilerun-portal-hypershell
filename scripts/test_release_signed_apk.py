@@ -72,12 +72,38 @@ class ReleaseSignedApkTests(unittest.TestCase):
                 "Alias name: two\nEntry type: PrivateKeyEntry\n"
             )
 
-    def test_gradle_argv_contains_no_secret_values(self):
+    def test_gradle_argv_contains_no_secret_values_and_skips_redundant_lint_vital(self):
         password = "S3cret-value-that-must-not-enter-argv"
-        rendered = "\0".join(module.gradle_release_command())
+        command = module.gradle_release_command()
+        rendered = "\0".join(command)
         self.assertNotIn(password, rendered)
         self.assertNotIn("DROIDRUN_KEYSTORE_PASSWORD=", rendered)
         self.assertNotIn("DROIDRUN_KEYSTORE_KEY_PASSWORD=", rendered)
+        self.assertIn(":app:assembleRelease", command)
+        self.assertIn(["-x", "lintVitalRelease"], [command[index:index + 2] for index in range(len(command) - 1)])
+
+    def test_build_release_uses_writable_android_user_home(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            repo = root / "repo"
+            output = repo / "app/build/outputs/apk/release"
+            output.mkdir(parents=True)
+            (repo / "gradle.properties").write_text("versionName=1.2.3\nversionCode=7\n", encoding="utf-8")
+            expected = output / f"{module.APP_ID}-1.2.3-release.apk"
+            observed = {}
+
+            def runner(argv, **kwargs):
+                observed["argv"] = list(argv)
+                observed["env"] = dict(kwargs["env"])
+                expected.write_bytes(b"apk")
+                return None
+
+            with mock.patch.object(module, "_run", side_effect=runner), mock.patch.object(module, "GRADLE_CACHE", root / "gradle-cache"):
+                result = module.build_release(repo, root / "signing.jks", "password", "portal")
+            self.assertEqual(result, expected)
+            self.assertEqual(observed["env"]["HOME"], "/tmp/home")
+            self.assertEqual(observed["env"]["ANDROID_USER_HOME"], "/tmp/android-home")
+            self.assertEqual(observed["env"]["GRADLE_USER_HOME"], str(root / "gradle-cache"))
 
     def test_run_rejects_secret_material_in_argv_before_process_start(self):
         with self.assertRaisesRegex(module.ReleaseError, "secret material"):
