@@ -1,0 +1,10 @@
+{
+  "schema_version": 1,
+  "name": "Mobilerun Portal",
+  "category": "Applications",
+  "kind": "application",
+  "upstream": {
+    "repository": "droidrun/mobilerun-portal",
+    "reason": "Adds the self-hosted on-demand operating model required for Hypershell mobile control."
+  }
+}
